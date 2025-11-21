@@ -31,15 +31,17 @@ end)
 
 -- load/unload handlers
 AddEventHandler('onResourceStart', function(resource)
-   if resource ~= GetCurrentResourceName() then return end
+    if resource ~= GetCurrentResourceName() then return end
 
-   zones_utils.createCustomZones()
+    loaded = true
+    zones_utils.createCustomZones()
 end)
 
 AddEventHandler('onResourceStop', function(resource)
-   if resource ~= GetCurrentResourceName() then return end
+    if resource ~= GetCurrentResourceName() then return end
 
-   zones_utils.destroyCustomZones()
+    loaded = false
+    zones_utils.destroyCustomZones()
 end)
 
 RegisterNetEvent(config.playerLoadEvent, function()
