@@ -50,7 +50,7 @@ function zones_utils.createCustomZones()
         customZones[#customZones + 1] = lib.zones.poly({
             points = zone.points,
             thickness = zone.thickness or 20.0,
-            debug = true,
+            debug = config.debug,
             onEnter = function()
                 if currentZone ~= zoneId then
                     zones_utils.enteredZone(zoneId)

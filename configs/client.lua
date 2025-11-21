@@ -2,11 +2,13 @@ return {
     playerLoadEvent = 'QBCore:Client:OnPlayerLoaded',       -- Framework specific event for player load
     playerUnloadEvent = 'QBCore:Client:OnPlayerUnload',     -- Framework specific event for player unload
 
-    playZoneSound = true,              -- Play sound when entering a new zone
+    playZoneSound = true,               -- Play sound when entering a new zone
 
     showZoneCommand = 'zoneinfo',       -- Command to show zone information
 
     use12HourFormat = true,             -- Set to true for 12-hour format, false for 24-hour format
+
+    debug = false,                      -- Enable debug mode for custom zones
 
     customZones = {                     -- Custom zones using ox_lib's poly zones
         ['vagos'] = {                   -- Unique identifier for the custom zone
