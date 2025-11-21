@@ -2,10 +2,12 @@ local config = require 'configs.client'
 local zones_utils = require 'modules.client.zones'
 local ui_utils = require 'modules.client.ui'
 
+local loaded = false
+
 -- main thread to monitor gta zone changes
 CreateThread(function()
     while true do
-        if cache.ped then
+        if loaded then
             local coords = GetEntityCoords(cache.ped)
             local zone = zones_utils.getZonePlayerIsIn()
             local currentZone = zones_utils.getCurrentZone()
@@ -41,9 +43,11 @@ AddEventHandler('onResourceStop', function(resource)
 end)
 
 RegisterNetEvent(config.playerLoadEvent, function()
+    loaded = true
     zones_utils.createCustomZones()
 end)
 
 RegisterNetEvent(config.playerUnloadEvent, function()
+    loaded = false
     zones_utils.destroyCustomZones()
 end)
