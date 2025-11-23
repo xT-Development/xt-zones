@@ -19,6 +19,7 @@
 # Exports
 ```lua
 -- Client:
-exports['xt-zones']:getCurrentZone(source, amount)      -- returns the cached value of the current zone the player is in
-exports['xt-zones']:getZonePlayerIsIn(source, amount)   -- runs checks to get the zone the player is in
+exports['xt-zones']:showZone(zone)        -- zone is optional, must be a zone name from zones.json or the customZones
+exports['xt-zones']:getCurrentZone()      -- returns the cached value of the current zone the player is in
+exports['xt-zones']:getZonePlayerIsIn()   -- runs checks to get the zone the player is in
 ```

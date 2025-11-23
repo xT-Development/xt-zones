@@ -13,7 +13,7 @@ CreateThread(function()
             local currentZone = zones_utils.getCurrentZone()
 
             if zone ~= currentZone then
-                zones_utils.enteredZone(zone)
+                exports['xt-zones']:showZone(zone)
             end
         end
 
@@ -27,7 +27,7 @@ RegisterCommand(config.showZoneCommand, function()
     local currentZone = zones_utils.getCurrentZone()
 
     ui_utils.showZone(currentZone)
-end)
+end, false)
 
 -- load/unload handlers
 AddEventHandler('onResourceStart', function(resource)

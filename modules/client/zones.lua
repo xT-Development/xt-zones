@@ -25,14 +25,12 @@ end exports('getZonePlayerIsIn', zones_utils.getZonePlayerIsIn)
 
 -- player enters a zone
 function zones_utils.enteredZone(zone)
-    if currentZone == zone then return end
+    zone = zone or zones_utils.getZonePlayerIsIn()
 
     currentZone = zone
 
-    local zoneName = config.customZones[zone] and config.customZones[zone].name or zones[zone] or "Unknown Area"
-
-    ui_utils.showZone(zoneName)
-end
+    ui_utils.showZone(zone)
+end exports('showZone', zones_utils.enteredZone)
 
 -- player exits a zone
 function zones_utils.exitedZone()
