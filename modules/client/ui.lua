@@ -1,5 +1,11 @@
-local use12HourFormat = require 'configs.client'.use12HourFormat
-local playZoneSound = require 'configs.client'.playZoneSound
+local config = require 'configs.client'
+local defaultPosition = config.defaultPosition
+local defaultTextColor = config.defaultTextColor
+local defaultSecondTextColor = config.defaultSecondTextColor
+local use12HourFormat = config.use12HourFormat
+local playZoneSound = config.playZoneSound
+local zones = LoadResourceFile(GetCurrentResourceName(), "configs/zones.json")
+zones = json.decode(zones)
 
 -- get in-game time
 local function getInGameTime()
@@ -25,7 +31,9 @@ end
 
 local ui_utils = {}
 
-function ui_utils.showZone(zoneName)
+function ui_utils.showZone(zone, position, color, secondColor)
+    local zoneName = config.customZones[zone] and config.customZones[zone].name or zones[zone] or "Unknown Area"
+
     if playZoneSound then
         PlaySoundFrontend(-1, "FocusOut", "HintCamSounds", true)
     end
@@ -33,7 +41,10 @@ function ui_utils.showZone(zoneName)
     SendNUIMessage({
         action = "showZone",
         zone = zoneName,
-        time = getInGameTime()
+        time = getInGameTime(),
+        position = position or defaultPosition,
+        color = color or defaultTextColor,
+        secondColor = secondColor or defaultSecondTextColor
     })
 end
 

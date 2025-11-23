@@ -11,9 +11,6 @@ body {
 /* Main Container */
 #main-display {
     position: fixed;
-    bottom: 3vh;
-    right: 2vw;
-    text-align: right;
     color: #ffffff;
     opacity: 0;
     transition: opacity 1.0s ease-in-out;
@@ -21,6 +18,45 @@ body {
     width: auto;
     max-width: 40vw;
     transform: none;
+}
+
+/* Positioning */
+.bottom-right {
+    bottom: 3vh;
+    right: 2vw;
+    text-align: right;
+}
+
+.bottom-left {
+    bottom: 3vh;
+    left: 2vw;
+    text-align: left;
+}
+
+.bottom-center {
+    bottom: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.top-right {
+    top: 3vh;
+    right: 2vw;
+    text-align: right;
+}
+
+.top-left {
+    top: 3vh;
+    left: 2vw;
+    text-align: left;
+}
+
+.top-center {
+    top: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 /* Visible State */
